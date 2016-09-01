@@ -18,7 +18,7 @@ app.controller('IssueDetailController', ['$scope', '$state', '$stateParams', 'To
     function init(){
       console.log($state);
       console.log('ready to get yardstick code content!');
-      $scope.content ='py sb!';
+      $scope.content ='ljc sb!';
       $scope.goBack = goBack;
       getDetail();
     }

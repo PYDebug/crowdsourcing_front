@@ -14,7 +14,7 @@ app.controller('ProjectIssuesController', ['$scope', '$state', '$stateParams', '
     function init(){
       console.log($state);
       console.log('ready to get yardstick code content!');
-      $scope.content ='py sb!';
+      $scope.content ='ljc sb!';
       $scope.getDetail = getDetail;
       $scope.pageChanged = getProjectIssues;
       getProjectIssues();
