@@ -1,9 +1,11 @@
 'use strict';
 
-app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', 'ProjectFactory', function($scope,
-    $state, ToasterTool, ProjectFactory) {
+app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', 'ProjectFactory', 'HttpResponseFactory', 'ErrorHandlerFactory', function($scope,
+    $state, ToasterTool, ProjectFactory, HttpResponseFactory, ErrorHandlerFactory) {
 
     $scope.projects = [];
+
+    var errorHandler = ErrorHandlerFactory.handle;
 
     init();
 
@@ -14,7 +16,19 @@ app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', '
     }
 
     function getProjects(){
-      ProjectFactory.getProjectList().get({},  getProjectListSuccess, getProjectListFailed);
+      // ProjectFactory.getProjectList().get({},  getProjectListSuccess, getProjectListFailed);
+      ProjectFactory.getProjectList().get({
+			})
+			.$promise
+			.then(function(response){
+				if(HttpResponseFactory.isResponseSuccess(response)){
+					var data = HttpResponseFactory.getResponseData(response);
+					angular.copy(data, $scope.projects);
+				}else{
+	        errorHandler(response);
+				}
+			})
+      .catch(errorHandler);
     }
 
     function getProjectListSuccess(data) {

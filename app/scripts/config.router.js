@@ -51,6 +51,8 @@ angular.module('crowdsourcing')
                       return $ocLazyLoad.load([
                           'scripts/controller/app/project/ProjectManager.controller.js',
                           'scripts/factory/Project.factory.js',
+                          'scripts/factory/HttpResponse.factory.js',
+                          'scripts/factory/ErrorHandler.factory.js',
                       ]);
                   }]
                 }

@@ -10,7 +10,7 @@
                 <tbody>
                 <tr ng-repeat="content in content">
                     <!-- <td></td> -->
-                    <td><i class="fa" ng-class="{'fa-folder': content.type=='tree' , 'fa-file-text-o': content.type=='blob'}"></i>&nbsp;&nbsp;{{content.name}}</td>
+                    <td><a><i class="fa" ng-class="{'fa-folder': content.type=='tree' , 'fa-file-text-o': content.type=='blob'}"></i>&nbsp;&nbsp;{{content.name}}</a></td>
                     <td>Date...</td>
                     <td>Message...</td>
                 </tr>

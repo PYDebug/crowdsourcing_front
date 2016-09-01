@@ -262,6 +262,52 @@ traits:
                   "message": "操作成功",
                   "success": true
                 }
+  /{id}/tasks:
+    get:
+      is: [ secured ]
+      description: 获取项目任务列表
+      queryParameters:
+        ownerId:
+          type: number
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "code": "200",
+                  "data":
+                    [
+
+                    ],
+                  "paginator": {
+                     "page":1,
+                     "items": 10,
+                     "itemsPerPage":10,
+                     "totalItems":43,
+                     "totalPages": 5
+                    },
+                  "message": "操作成功",
+                  "success": true
+                }
+  /{id}/tree:
+    get:
+      is: [ secured ]
+      description: 获取项目目录列表
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "code": "200",
+                  "data":
+                    [
+
+                    ],
+                  "message": "操作成功",
+                  "success": true
+                }
 
 /group:
   /groups:
