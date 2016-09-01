@@ -10,7 +10,7 @@ app.controller('ProjectCommitsController', ['$scope', '$state', '$stateParams', 
     function init(){
       console.log($state);
       console.log('ready to get yardstick code content!');
-      $scope.content ='xtd sb!';
+      $scope.content ='py sb!';
       $scope.getProjectContent = getProjectContent;
       getProjectContent(project_id);
     }

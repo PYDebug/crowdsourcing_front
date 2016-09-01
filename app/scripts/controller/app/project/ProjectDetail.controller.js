@@ -21,7 +21,7 @@ app.controller('ProjectDetailController', ['$scope', '$state', '$stateParams', '
     function init(){
       console.log($state);
       console.log('ready to get yardstick code content!');
-      $scope.content ='xtd sb!';
+      $scope.content ='py sb!';
       $scope.getProjectCommits = getProjectCommits;
       $scope.getProjectTasks = getProjectTasks;
       $scope.getProjectIssues = getProjectIssues;
