@@ -1,0 +1,40 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">新建项目</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+          <div class="input-group m-b">
+            <div class="input-group-btn" uib-dropdown>
+                <button class="btn btn-white" uib-dropdown-toggle type="button">
+                    <img alt="image" class="img-circle min-image" src="images/avatar1.jpg"> &nbsp;&nbsp; Action <span class="caret"></span></button>
+                <ul uib-dropdown-menu>
+                    <li><a href=""><img alt="image" class="img-circle min-image" src="images/avatar1.jpg"> &nbsp;&nbsp;Action</a></li>
+                    <li><a href=""><img alt="image" class="img-circle min-image" src="images/avatar2.jpg"> &nbsp;&nbsp;Another action</a></li>
+                    <li><a href=""><img alt="image" class="img-circle min-image" src="images/avatar3.jpg"> &nbsp;&nbsp;Something else here</a></li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" placeholder="项目名">
+          </div>
+        </div>
+
+        <div class="row">
+          <textarea class="form-control" placeholder="项目描述" style="resize: none; height:150px;"></textarea>
+        </div>
+        <div class="row">
+          <div><label> <input icheck type="radio" name="radioTest"
+                                            ng-model="main.checkFour"> <i class="fa fa-unlock-alt"></i> &nbsp;私有 </label></div>
+          <div><label> <input icheck type="radio" name="radioTest"
+                                            ng-model="main.check8"> <i class="fa fa-globe"></i> &nbsp;公共 </label>
+          </div>
+        </div>
+        <div class="row">
+          <div><label> <input icheck type="checkbox" ng-model="main.check4"> 启用README.md文件初始化项目 </label></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" ng-click="cancel()">关闭</button>
+        <button type="button" class="btn btn-primary" ng-click="ok()">新建</button>
+    </div>
+
+</div>

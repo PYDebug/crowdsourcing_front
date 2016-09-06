@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', 'ProjectFactory', 'HttpResponseFactory', 'ErrorHandlerFactory', function($scope,
+app.controller('ProjectManagerController', ['$scope', '$uibModal', '$state', 'ToasterTool', 'ProjectFactory', 'HttpResponseFactory', 'ErrorHandlerFactory', function($scope, $uibModal,
     $state, ToasterTool, ProjectFactory, HttpResponseFactory, ErrorHandlerFactory) {
 
     $scope.projects = [];
@@ -13,6 +13,7 @@ app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', '
       console.log($state);
       console.log('ProjectManagerController Init');
       getProjects();
+      $scope.newProject = newProject;
     }
 
     function getProjects(){
@@ -42,5 +43,13 @@ app.controller('ProjectManagerController', ['$scope', '$state', 'ToasterTool', '
 
     function getProjectListFailed(error){
       ToasterTool.error('错误','获取项目列表失败');
+    }
+
+    function newProject(){
+      var modalInstance = $uibModal.open({
+            templateUrl: 'views/app/project/modal/new_project.html',
+            size: 'lg',
+            controller: "ProjectAddController"
+        });
     }
 }]);

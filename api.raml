@@ -8,7 +8,7 @@ version: v1
 traits:
   - secured:
       headers:
-        X-Auth-Token:
+        PRIVATE-TOKEN:
           description: 当前用户token，用于验证权限,从登录返回的header中获取
           type: string
           required: true
@@ -120,6 +120,39 @@ traits:
                       {},
                       ...
                     ],
+                  "message": "操作成功",
+                  "success": true
+                }
+    post:
+      description: 用户注册
+      is: [secured]
+      body:
+        application/json:
+          schema: |
+            {
+              "name": "SVG",
+              "namespace_id ": "XTDSB",
+              "description": "123456",
+              "public ": true
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "code": "200",
+                  "data": {
+                    "id": 1,
+                    "name": "SB",
+                    "username": "XTDSB",
+                    "state": "active",
+                    "avatar_url": null,
+                    "created_at": 1459246440000,
+                    "is_admin": true,
+                    "email": "john@example.com",
+                    "private_token": "9koXpg98eAheJpvBs5tK"
+                  },
                   "message": "操作成功",
                   "success": true
                 }
@@ -314,6 +347,54 @@ traits:
     get:
       is: [ secured ]
       description: 获取团队列表
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "code": "200",
+                  "data":
+                    [
+                      {
+                        "id": 1,
+                        "name": "Foobar Group",
+                        "path": "foo-bar",
+                        "description": "An interesting group"
+                        "members": [
+                          {
+                            "id": 1,
+                            "name": "SB",
+                            "username": "XTDSB",
+                            "state": "active",
+                            "avatar_url": null,
+                            "created_at": 1459246440000,
+                            "is_admin": true,
+                            "email": "john@example.com",
+                          },
+                          {},
+                          ...
+                        ],
+                        "projects":[
+                          {
+                            "id": 1,
+                            "name": "Dota",
+                            "created_at": 1459246440000,
+                          },
+                          {},
+                          ...
+                        ]
+                      },
+                      {},
+                      ...
+                    ],
+                  "message": "操作成功",
+                  "success": true
+                }
+  /groups/{userId}:
+    get:
+      is: [ secured ]
+      description: 获取用户所在团队列表
       responses:
         200:
           body:

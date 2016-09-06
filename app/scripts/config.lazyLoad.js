@@ -22,6 +22,13 @@ angular.module('crowdsourcing')
           files: [
             'lib/libs/angular-bootstrap-checkbox.js'
           ]
+        },
+        {
+          name: 'iCheck',
+          files: [
+            'lib/css/iCheck/custom.css',
+            'lib/libs/iCheck/icheck.min.js',
+          ]
         }
       ]
     });
